@@ -1,0 +1,11 @@
+export { default as Home } from './Home';
+export { default as Shop } from './Shop';
+export { default as News } from './News';
+export { default as About } from './About';
+export { default as Contact } from './Contact';
+export { default as ProductDetail } from './ProductDetail';
+export { default as ShoppingCart } from './ShoppingCart';
+export { default as Checkout } from './Checkout';
+export { default as OrderSuccess } from './OrderSuccess';
+export { default as Orders } from './Orders';
+export { default as OrderDetail } from './OrderDetail';

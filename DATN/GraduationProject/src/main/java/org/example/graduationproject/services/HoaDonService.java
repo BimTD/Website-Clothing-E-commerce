@@ -1,0 +1,43 @@
+package org.example.graduationproject.services;
+
+import org.example.graduationproject.dto.CheckoutDTO;
+import org.example.graduationproject.dto.CheckoutRequestDTO;
+import org.example.graduationproject.models.GioHang;
+import org.example.graduationproject.models.HoaDon;
+import org.example.graduationproject.models.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+import java.util.List;
+
+public interface HoaDonService {
+    
+    // Tạo hóa đơn từ giỏ hàng
+    HoaDon createOrderFromCart(User user, CheckoutDTO checkoutDTO);
+    
+    // Tạo hóa đơn từ dữ liệu checkout frontend
+    HoaDon createOrderFromCheckout(User user, CheckoutRequestDTO checkoutRequestDTO);
+    
+    // Lấy tất cả hóa đơn của user
+    List<HoaDon> getUserOrders(User user);
+    
+    // Lấy tất cả hóa đơn với phân trang (cho admin)
+    Page<HoaDon> getAllInvoices(Pageable pageable);
+    
+    // Lấy hóa đơn theo ID
+    HoaDon getOrderById(Integer orderId);
+    
+    // Lấy hóa đơn của user theo ID
+    HoaDon getUserOrderById(User user, Integer orderId);
+    
+    // Cập nhật trạng thái hóa đơn
+    boolean updateOrderStatus(Integer orderId, String newStatus);
+    
+    boolean updateOrderStatusAndRestoreStock(Integer orderId, String newStatus);
+    
+    // Lưu hóa đơn
+    HoaDon saveOrder(HoaDon hoaDon);
+    
+    // Hủy hóa đơn
+    boolean cancelOrder(User user, Integer orderId);
+}
